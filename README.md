@@ -95,6 +95,35 @@ This repository uses the BrowserStack SDK to run tests on BrowserStack. Follow t
 
 * Install dependencies `gradle build`
 
+## Include Healenium with this setup
+* Add Project dependancy
+```sh
+<dependency>
+   <groupId>com.epam.healenium</groupId>
+   <artifactId>healenium-web</artifactId>
+   <version>3.4.4</version>
+</dependency>
+
+```
+* Init driver instance of SelfHealingDriver: Update SeleniumTest.java 
+```sh
+~~public WebDriver driver;
+public WebDriver delegate;
+public SelfHealingDriver driver;
+```
+* In setup()
+```sh
+//declare Delegate
+delegate = new ChromeDriver(options);
+//create selfhealing driver
+driver = SelfHealingDriver.create(delegate);
+```
+* Up and run docker services:
+``` sh
+cd infra 
+docker-compose up -d
+```
+
 
 ## Notes
 * You can view your test results on the [BrowserStack Automate dashboard](https://www.browserstack.com/automate)
