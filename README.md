@@ -107,7 +107,7 @@ This repository uses the BrowserStack SDK to run tests on BrowserStack. Follow t
 ```
 * Init driver instance of SelfHealingDriver: Update SeleniumTest.java 
 ```sh
-~~public WebDriver driver;
+//public WebDriver driver;
 public WebDriver delegate;
 public SelfHealingDriver driver;
 ```
